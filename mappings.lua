@@ -25,4 +25,8 @@ return {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
+  i = {
+    -- Use <C-H> since <C-bs> sometimes fails (<C-H> also makes <C-bs> work)
+    ["<C-H>"] = { "<C-w>", desc = { "Delete a word in front of cursor" } }
+  }
 }
