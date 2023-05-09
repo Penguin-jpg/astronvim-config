@@ -10,6 +10,11 @@ return {
   --   end,
   -- },
 
+  -- Clangd LSP
+  {
+    "p00f/clangd_extensions.nvim",
+    cmd = { "ClangdSymbolInfo", "ClangdTypeHierarchy", "ClangdMemoryUsage" }
+  },
   -- Add TODO comments support
   {
     "folke/todo-comments.nvim",
