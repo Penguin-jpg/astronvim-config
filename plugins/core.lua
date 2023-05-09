@@ -74,4 +74,6 @@ return {
   --     }, { mode = "n", prefix = "<leader>" })
   --   end,
   -- },
+
+  { "nvim-telescope/telescope-fzf-native.nvim", enabled = false },
 }
