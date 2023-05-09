@@ -27,6 +27,12 @@ return {
       desc = "Comment line",
     },
 
+    -- Clear all notifications
+    ["<leader>un"] = {
+        function() require("notify").dismiss({ slient = true, pending = true }) end,
+        desc = "Dismiss all notifications"
+    },
+
     -- Custom mappings for nvim-gomove
     ["<A-Up>"] = { "<Plug>GoNSMUp", desc = "Move line up" },
     ["<A-Down>"] = { "<Plug>GoNSMDown", desc = "Move line down" },
