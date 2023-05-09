@@ -29,6 +29,9 @@ return {
   },
   i = {
     -- Use <C-H> since <C-bs> sometimes fails (<C-H> also makes <C-bs> work)
-    ["<C-H>"] = { "<C-w>", desc = { "Delete a word in front of cursor" } }
+    ["<C-H>"] = { "<C-w>", desc = { "Delete a word in front of cursor" } },
+    
+    -- Unindent in insert mode
+    ["<S-Tab>"] = { "<C-d>", desc = "Unindent line" },
   }
 }
