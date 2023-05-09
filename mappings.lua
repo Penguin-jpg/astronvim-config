@@ -22,6 +22,10 @@ return {
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     
     ["<C-a>"] = { "ggVG", desc = "Select all lines" },
+    ["<C-_>"] = {
+      function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Comment line",
+    },
 
     -- Custom mappings for nvim-gomove
     ["<A-Up>"] = { "<Plug>GoNSMUp", desc = "Move line up" },
@@ -43,8 +47,17 @@ return {
     
     -- Unindent in insert mode
     ["<S-Tab>"] = { "<C-d>", desc = "Unindent line" },
+
+    ["<C-_>"] = {
+      function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Comment line in insert mode",
+    },
   },
   v = {
+    ["<C-_>"] = { "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", 
+      desc = "Toggle comment line" 
+    },
+
     -- Custom mappings for nvim-gomove
     ["<A-Up>"] = { "<Plug>GoVSMUp", desc = "Move line up" },
     ["<A-Down>"] = { "<Plug>GoVSMDown", desc = "Move line down" },
