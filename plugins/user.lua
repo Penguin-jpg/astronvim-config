@@ -14,6 +14,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "BufEnter",
     config = function()
       -- Default config
       require('lualine').setup {
