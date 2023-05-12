@@ -3,9 +3,6 @@ return {
   "AstroNvim/astrocommunity",
   -- example of imporing a plugin, comment out to use it or add your own
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
-  
-  -- Utility
-  { import = "astrocommunity.utility.noice-nvim" },
 
   -- Language pack
   { import = "astrocommunity.pack.python" },
