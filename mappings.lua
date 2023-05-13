@@ -38,10 +38,10 @@ return {
     ["<A-Down>"] = { "<Plug>GoNSMDown", desc = "Move line down" },
     ["<A-Left>"] = { "<Plug>GoNSMLeft", desc = "Move line left" },
     ["<A-Right>"] = { "<Plug>GoNSMRight", desc = "Move line right" },
-    ["<S-Up>"] = { "<Plug>GoNSDUp", desc = "Duplicate line and paste it above" },
-    ["<S-Down>"] = { "<Plug>GoNSDDown", desc = "Duplicate line and paste it below" },
-    ["<S-Left>"] = { "<Plug>GoNSDLeft", desc = "Duplicate line and paste it left" },
-    ["<S-Right>"] = { "<Plug>GoNSDRight", desc = "Duplicate line and paste it right" },
+    ["<S-A-Up>"] = { "<Plug>GoNSDUp", desc = "Duplicate line and paste it above" },
+    ["<S-A-Down>"] = { "<Plug>GoNSDDown", desc = "Duplicate line and paste it below" },
+    ["<S-A-Left>"] = { "<Plug>GoNSDLeft", desc = "Duplicate line and paste it left" },
+    ["<S-A-Right>"] = { "<Plug>GoNSDRight", desc = "Duplicate line and paste it right" },
   },
   t = {
     -- setting a mapping to false will disable it
@@ -69,9 +69,9 @@ return {
     ["<A-Down>"] = { "<Plug>GoVSMDown", desc = "Move line down" },
     ["<A-Left>"] = { "<Plug>GoVSMLeft", desc = "Move line left" },
     ["<A-Right>"] = { "<Plug>GoVSMRight", desc = "Move line right" },
-    ["<S-Up>"] = { "<Plug>GoVSDUp", desc = "Duplicate line and paste it above" },
-    ["<S-Down>"] = { "<Plug>GoVSDDown", desc = "Duplicate line and paste it below" },
-    ["<S-Left>"] = { "<Plug>GoVSDLeft", desc = "Duplicate line and paste it left" },
-    ["<S-Right>"] = { "<Plug>GoVSDRight", desc = "Duplicate line and paste it right" },
+    ["<S-A-Up>"] = { "<Plug>GoVSDUp", desc = "Duplicate line and paste it above" },
+    ["<S-A-Down>"] = { "<Plug>GoVSDDown", desc = "Duplicate line and paste it below" },
+    ["<S-A-Left>"] = { "<Plug>GoVSDLeft", desc = "Duplicate line and paste it left" },
+    ["<S-A-Right>"] = { "<Plug>GoVSDRight", desc = "Duplicate line and paste it right" },
   }
 }
