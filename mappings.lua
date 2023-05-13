@@ -21,6 +21,9 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     
+    -- Activate shift-selecting mode
+    ["<leader>ss"] = { "<cmd>set keymodel=startsel,stopsel<cr>", desc = "Activate shift-selecting mode" },
+    
     ["<C-a>"] = { "ggVG", desc = "Select all lines" },
     ["<C-_>"] = {
       function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
