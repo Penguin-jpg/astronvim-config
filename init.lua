@@ -93,6 +93,12 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    vim.api.nvim_create_augroup("activateshiftselect", { clear = true })
+    vim.api.nvim_create_autocmd("BufEnter", {
+      desc = "Automatically activate shift-selecting",
+      group = "activateshiftselect",
+      command = "set keymodel=startsel,stopsel"
+  })
   end,
   -- add new user interface icon
   icons = {
