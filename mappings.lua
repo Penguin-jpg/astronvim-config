@@ -45,6 +45,11 @@ return {
     ["<S-A-Down>"] = { "<Plug>GoNSDDown", desc = "Duplicate line and paste it below" },
     ["<S-A-Left>"] = { "<Plug>GoNSDLeft", desc = "Duplicate line and paste it left" },
     ["<S-A-Right>"] = { "<Plug>GoNSDRight", desc = "Duplicate line and paste it right" },
+
+    -- Custom mappings for vim-visual-multi
+    ["<A-LeftMouse>"] = { "<Plug>(VM-Mouse-Cursor)", desc = "Add a curosr at clicked position" },
+    ["<A-RightMouse>"] = { "<Plug>(VM-Mouse-Word)", desc = "Select a word at clicked position" },
+    ["<A-MiddleMouse>"] = { "<Plug>(VM-Mouse-Column)", desc = "Add cursors up to last clicked position" },
   },
   t = {
     -- setting a mapping to false will disable it

@@ -43,5 +43,10 @@ return {
       }
     end,
   },
-
+  -- Multi-cursors support
+  {
+    "mg979/vim-visual-multi",
+    event = "User AstroFile",
+    branch = "master",
+  },
 }
