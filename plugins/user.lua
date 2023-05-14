@@ -45,8 +45,8 @@ return {
   },
   -- Multi-cursors support
   {
-    "mg979/vim-visual-multi",
+    "Penguin-jpg/vim-visual-multi",
     event = "User AstroFile",
-    branch = "master",
+    branch = "custom",
   },
 }
