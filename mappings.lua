@@ -26,6 +26,7 @@ return {
       function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Comment line",
     },
+    ["<C-z>"] = { "u", desc = "Undo" },
 
     -- Clear all notifications
     ["<leader>un"] = {
@@ -55,6 +56,9 @@ return {
   i = {
     -- Use <C-H> since <C-bs> sometimes fails (<C-H> also makes <C-bs> work)
     ["<C-H>"] = { "<C-w>", desc = { "Delete a word in front of cursor" } },
+    -- Use <C-o> to tempoarily exit insert mode and back to insert mode again
+    ["<C-z>"] = { "<C-o>u", desc = "Undo in insert mode" },
+    ["<C-r>"] = { "<C-o><C-r>", desc = "Redo in insert mode" },
     
     -- Unindent in insert mode
     ["<S-Tab>"] = { "<C-d>", desc = "Unindent line" },
