@@ -64,5 +64,5 @@ return {
   -- },
 
   { "nvim-telescope/telescope-fzf-native.nvim", enabled = false },
-  { "mfussenegger/nvim-dap", enabled = true },
+  -- { "mfussenegger/nvim-dap", enabled = true },
 }

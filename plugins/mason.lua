@@ -23,6 +23,7 @@ return {
         "stylua",
         "clang-format",
         "black",
+        "ruff-lsp",
       })
     end,
   },
