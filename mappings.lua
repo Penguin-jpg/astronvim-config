@@ -21,6 +21,12 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     
+    -- Resize window
+    ["<C-A-Up>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" },
+    ["<C-A-Down>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" },
+    ["<C-A-Left>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" },
+    ["<C-A-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" },
+    
     ["<C-a>"] = { "ggVG", desc = "Select all lines" },
     ["<C-_>"] = {
       function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
@@ -54,8 +60,9 @@ return {
     -- ["<esc>"] = false,
   },
   i = {
-    -- Use <C-H> since <C-bs> sometimes fails (<C-H> also makes <C-bs> work)
+    -- Use <C-H> since <C-BS> sometimes fails (<C-H> also makes <C-BS> work)
     ["<C-H>"] = { "<C-w>", desc = { "Delete a word in front of cursor" } },
+    ["<C-Del>"] = { "<C-o>dw", desc = "Delete a word behind curosor" },
     -- Use <C-o> to tempoarily exit insert mode and back to insert mode again
     ["<C-z>"] = { "<C-o>u", desc = "Undo in insert mode" },
     ["<C-r>"] = { "<C-o><C-r>", desc = "Redo in insert mode" },
