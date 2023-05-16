@@ -33,6 +33,10 @@ return {
       desc = "Comment line",
     },
     ["<C-z>"] = { "u", desc = "Undo" },
+    ["<C-Right>"] = { "w", desc = "Move cursor right to beginning of a word" },
+    ["<C-Left>"] = { "b", desc = "Move curosr left to beginning of a word" },
+
+
 
     -- Clear all notifications
     ["<leader>un"] = {
@@ -76,6 +80,7 @@ return {
     },
   },
   v = {
+    ["<C-c>"] = { "y", desc = "Copy selected lines" },
     ["<C-_>"] = { "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", 
       desc = "Toggle comment line" 
     },
