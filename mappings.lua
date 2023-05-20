@@ -36,13 +36,11 @@ return {
     ["<C-Right>"] = { "w", desc = "Move cursor right to beginning of a word" },
     ["<C-Left>"] = { "b", desc = "Move curosr left to beginning of a word" },
 
-
-
-    -- Clear all notifications
     ["<leader>un"] = {
-        function() require("notify").dismiss({ slient = true, pending = true }) end,
-        desc = "Dismiss all notifications"
+      function() require("notify").dismiss({ slient = true, pending = true }) end,
+      desc = "Dismiss all notifications"
     },
+    ["<leader>pwd"] = { "<cmd>Neotree ./<cr>", desc = "Navigate Neotree explorer to pwd" },
 
     -- Custom mappings for nvim-gomove
     ["<A-Up>"] = { "<Plug>GoNSMUp", desc = "Move line up" },
