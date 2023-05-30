@@ -2,6 +2,8 @@
 return {
   "akinsho/toggleterm.nvim",
   opts = function(_, opts)
-    opts.shell = "pwsh.exe"
+    if vim.fn.has "win32" then
+      opts.shell = "pwsh.exe"
+    end
   end
 }
