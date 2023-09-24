@@ -5,5 +5,5 @@ return {
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
   -- Language pack
-  { import = "astrocommunity.pack.cpp" },
+  -- { import = "astrocommunity.pack.cpp" },
 }
