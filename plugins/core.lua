@@ -64,7 +64,4 @@ return {
   -- },
 
   { "nvim-telescope/telescope-fzf-native.nvim", enabled = false },
-  { "mfussenegger/nvim-dap", enabled = false },
-  { "rcarriga/nvim-dap-ui", enabled = false },
-  { "windwp/nvim-ts-autotag", enabled = false },
 }

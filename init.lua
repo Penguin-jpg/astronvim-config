@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "kanagawa",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -51,11 +51,6 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
-    },
-    -- custom setup handler for clangd since it has offset encoding problem
-    setup_handlers = {
-      -- add custom handler
-      clangd = function(_, opts) require("clangd_extensions").setup { server = opts } end
     },
     config = {
       clangd = {
@@ -98,7 +93,7 @@ return {
       desc = "Automatically activate shift-selecting",
       group = "activateshiftselect",
       command = "set keymodel=startsel,stopsel"
-  })
+    })
   end,
   -- add new user interface icon
   icons = {

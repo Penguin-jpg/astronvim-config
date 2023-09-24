@@ -14,10 +14,23 @@ return {
   {
     "rebelot/kanagawa.nvim",
   },
-  -- Clangd LSP
+  -- Additional features for Clangd
   {
     "p00f/clangd_extensions.nvim",
-    cmd = { "ClangdSymbolInfo", "ClangdTypeHierarchy", "ClangdMemoryUsage" }
+    init = function()
+      -- load clangd extensions when clangd attaches
+      local augroup = vim.api.nvim_create_augroup("clangd_extensions", { clear = true })
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = augroup,
+        desc = "Load clangd_extensions with clangd",
+        callback = function(args)
+          if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "clangd" then
+            require "clangd_extensions"
+            vim.api.nvim_del_augroup_by_id(augroup)
+          end
+        end,
+      })
+    end,
   },
   -- Add TODO comments support
   {
@@ -48,5 +61,37 @@ return {
     "Penguin-jpg/vim-visual-multi",
     event = "User AstroFile",
     branch = "custom",
+  },
+  -- Better move by word support
+  {
+    "chrisgrieser/nvim-spider",
+    lazy = true,
+    keys = {
+      {
+        "<C-Right>",
+        "<cmd>lua require('spider').motion('w')<CR>",
+        mode = { "n", "i", "x", "o" },
+        desc = "Next word",
+      },
+      {
+        "e",
+        "<cmd>lua require('spider').motion('e')<CR>",
+        mode = { "n", "x", "o" },
+        desc = "Next end of word",
+      },
+      {
+        "<C-Left>",
+        "<cmd>lua require('spider').motion('b')<CR>",
+        mode = { "n", "x", "o" },
+        desc = "Previous word",
+      },
+      {
+        "ge",
+        "<cmd>lua require('spider').motion('ge')<CR>",
+        mode = { "n", "x", "o" },
+        desc = "Previous end of word",
+      },
+    },
+    opts = {},
   },
 }
