@@ -52,11 +52,6 @@ return {
     servers = {
       -- "pyright"
     },
-    -- custom setup handler for clangd since it has offset encoding problem
-    setup_handlers = {
-      -- add custom handler
-      clangd = function(_, opts) require("clangd_extensions").setup { server = opts } end
-    },
     config = {
       clangd = {
         capabilities = {
@@ -98,7 +93,7 @@ return {
       desc = "Automatically activate shift-selecting",
       group = "activateshiftselect",
       command = "set keymodel=startsel,stopsel"
-  })
+    })
   end,
   -- add new user interface icon
   icons = {
