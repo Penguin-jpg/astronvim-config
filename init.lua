@@ -88,11 +88,17 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
-    vim.api.nvim_create_augroup("activateshiftselect", { clear = true })
+    -- Some commands that I want to execute in specific timing
+    vim.api.nvim_create_augroup("auto-commands", { clear = true })
     vim.api.nvim_create_autocmd("BufEnter", {
       desc = "Automatically activate shift-selecting",
-      group = "activateshiftselect",
-      command = "set keymodel=startsel,stopsel"
+      group = "auto-commands",
+      command = "set keymodel=startsel,stopsel",
+    })
+    vim.api.nvim_create_autocmd("BufWinEnter", {
+      desc = "Automatically change cursor type to vertical line",
+      group = "auto-commands",
+      command = "set guicursor=n-v-i-c-ci:ver100",
     })
   end,
   -- add new user interface icon
