@@ -98,7 +98,7 @@ return {
     vim.api.nvim_create_autocmd("BufWinEnter", {
       desc = "Automatically change cursor type to vertical line",
       group = "auto-commands",
-      command = "set guicursor=n-v-i-c-ci:ver100",
+      command = "set guicursor=i:ver100",
     })
   end,
   -- add new user interface icon
