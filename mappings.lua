@@ -47,10 +47,10 @@ return {
     ["<A-Down>"] = { "<Plug>GoNSMDown", desc = "Move line down" },
     ["<A-Left>"] = { "<Plug>GoNSMLeft", desc = "Move line left" },
     ["<A-Right>"] = { "<Plug>GoNSMRight", desc = "Move line right" },
-    ["<S-A-Up>"] = { "<Plug>GoNSDUp", desc = "Duplicate line and paste it above" },
-    ["<S-A-Down>"] = { "<Plug>GoNSDDown", desc = "Duplicate line and paste it below" },
-    ["<S-A-Left>"] = { "<Plug>GoNSDLeft", desc = "Duplicate line and paste it left" },
-    ["<S-A-Right>"] = { "<Plug>GoNSDRight", desc = "Duplicate line and paste it right" },
+    ["<S-Up>"] = { "<Plug>GoNSDUp", desc = "Duplicate line and paste it above" },
+    ["<S-Down>"] = { "<Plug>GoNSDDown", desc = "Duplicate line and paste it below" },
+    ["<S-Left>"] = { "<Plug>GoNSDLeft", desc = "Duplicate line and paste it left" },
+    ["<S-Right>"] = { "<Plug>GoNSDRight", desc = "Duplicate line and paste it right" },
 
     -- Custom mappings for vim-visual-multi
     ["<A-LeftMouse>"] = { "<Plug>(VM-Mouse-Cursor)", desc = "Add a curosr at clicked position" },
@@ -76,6 +76,9 @@ return {
       function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Comment line in insert mode",
     },
+
+    ["<C-Right>"] = { "<C-o><cmd>lua require('spider').motion('w')<CR>", desc = "Next word" },
+    ["<C-Left>"] = { "<C-o><cmd>lua require('spider').motion('b')<CR>", desc = "Previous word" },
   },
   v = {
     ["<C-c>"] = { "y", desc = "Copy selected lines" },
@@ -84,13 +87,13 @@ return {
     },
 
     -- Custom mappings for nvim-gomove
-    ["<A-Up>"] = { "<Plug>GoVSMUp", desc = "Move line up" },
-    ["<A-Down>"] = { "<Plug>GoVSMDown", desc = "Move line down" },
-    ["<A-Left>"] = { "<Plug>GoVSMLeft", desc = "Move line left" },
-    ["<A-Right>"] = { "<Plug>GoVSMRight", desc = "Move line right" },
-    ["<S-A-Up>"] = { "<Plug>GoVSDUp", desc = "Duplicate line and paste it above" },
-    ["<S-A-Down>"] = { "<Plug>GoVSDDown", desc = "Duplicate line and paste it below" },
-    ["<S-A-Left>"] = { "<Plug>GoVSDLeft", desc = "Duplicate line and paste it left" },
-    ["<S-A-Right>"] = { "<Plug>GoVSDRight", desc = "Duplicate line and paste it right" },
+    ["<A-Up>"] = { "<Plug>GoVSMUp", desc = "Move block up" },
+    ["<A-Down>"] = { "<Plug>GoVSMDown", desc = "Move block down" },
+    ["<A-Left>"] = { "<Plug>GoVSMLeft", desc = "Move block left" },
+    ["<A-Right>"] = { "<Plug>GoVSMRight", desc = "Move block right" },
+    ["<S-Up>"] = { "<Plug>GoVSDUp", desc = "Duplicate block and paste it above" },
+    ["<S-Down>"] = { "<Plug>GoVSDDown", desc = "Duplicate block and paste it below" },
+    ["<S-Left>"] = { "<Plug>GoVSDLeft", desc = "Duplicate block and paste it left" },
+    ["<S-Right>"] = { "<Plug>GoVSDRight", desc = "Duplicate block and paste it right" },
   }
 }

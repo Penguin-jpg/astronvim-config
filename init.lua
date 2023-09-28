@@ -90,11 +90,11 @@ return {
     -- }
     -- Some commands that I want to execute in specific timing
     vim.api.nvim_create_augroup("auto-commands", { clear = true })
-    vim.api.nvim_create_autocmd("BufEnter", {
-      desc = "Automatically activate shift-selecting",
-      group = "auto-commands",
-      command = "set keymodel=startsel,stopsel",
-    })
+    -- vim.api.nvim_create_autocmd("BufEnter", {
+    --   desc = "Automatically activate shift-selecting",
+    --   group = "auto-commands",
+    --   command = "set keymodel=startsel,stopsel",
+    -- })
     vim.api.nvim_create_autocmd("BufWinEnter", {
       desc = "Automatically change cursor type to vertical line",
       group = "auto-commands",
