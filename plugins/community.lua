@@ -6,4 +6,7 @@ return {
 
   -- Language pack
   -- { import = "astrocommunity.pack.cpp" },
+
+  -- Commandline completion
+  { import = "astrocommunity.completion.cmp-cmdline" },
 }
