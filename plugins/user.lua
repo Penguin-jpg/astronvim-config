@@ -94,4 +94,10 @@ return {
     },
     opts = {},
   },
+  -- Search and replace box GUI
+  {
+    "VonHeikemen/searchbox.nvim",
+    event = "User AstroFile",
+    dependencies = { "MunifTanjim/nui.nvim" },
+  },
 }

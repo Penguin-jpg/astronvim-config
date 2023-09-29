@@ -56,6 +56,14 @@ return {
     ["<A-LeftMouse>"] = { "<Plug>(VM-Mouse-Cursor)", desc = "Add a curosr at clicked position" },
     ["<A-RightMouse>"] = { "<Plug>(VM-Mouse-Word)", desc = "Select a word at clicked position" },
     ["<A-MiddleMouse>"] = { "<Plug>(VM-Mouse-Column)", desc = "Add cursors up to last clicked position" },
+
+    -- Custom maaping for searchbox
+    ["<leader>F"] = { "<cmd>SearchBoxMatchAll show_matches=true<CR>", desc = "Search all matched texts" },
+    ["<leader>Fs"] = { "<cmd>SearchBoxMatchAll show_matches=true modifier=case-sensitive<CR>", desc =
+    "Search all matched texts (case-sensitive)" },
+    ["<leader>Fr"] = { "<cmd>SearchBoxReplace<CR>", desc = "Replace matched texts" },
+    ["<leader>Frs"] = { "<cmd>SearchBoxReplace modifier=case-sensitive<CR>", desc =
+    "Replace matched texts (case-sensitive)" },
   },
   t = {
     -- setting a mapping to false will disable it
@@ -76,9 +84,7 @@ return {
       function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Comment line in insert mode",
     },
-
-    -- ["<C-Right>"] = { "<C-o><cmd>lua require('spider').motion('w')<CR>", desc = "Next word" },
-    -- ["<C-Left>"] = { "<C-o><cmd>lua require('spider').motion('b')<CR>", desc = "Previous word" },
+    ["<C-s>"] = { "<cmd>w!<CR>", desc = "Save file" },
   },
   v = {
     ["<C-c>"] = { "y", desc = "Copy selected lines" },
