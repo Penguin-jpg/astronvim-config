@@ -22,7 +22,7 @@ return {
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
-    virtual_text = true,
+    virtual_text = false,
     underline = true,
   },
 
@@ -99,6 +99,21 @@ return {
       desc = "Automatically change cursor type to vertical line",
       group = "auto-commands",
       command = "set guicursor=i:ver100",
+    })
+    vim.api.nvim_create_autocmd("CursorHold", {
+      desc = "Show diagnostics text when cursor hovers that line",
+      group = "auto-commands",
+      callback = function()
+        local opts = {
+          focusable = false,
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          border = "rounded",
+          source = "always",
+          prefix = " ",
+          scope = "cursor",
+        }
+        vim.diagnostic.open_float(nil, opts)
+      end,
     })
   end,
   -- add new user interface icon
