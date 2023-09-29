@@ -68,7 +68,7 @@ return {
     lazy = true,
     keys = {
       {
-        "<C-Right>",
+        "w",
         "<cmd>lua require('spider').motion('w')<CR>",
         mode = { "n", "i", "x", "o" },
         desc = "Next word",
@@ -80,7 +80,7 @@ return {
         desc = "Next end of word",
       },
       {
-        "<C-Left>",
+        "b",
         "<cmd>lua require('spider').motion('b')<CR>",
         mode = { "n", "x", "o" },
         desc = "Previous word",

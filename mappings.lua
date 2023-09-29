@@ -77,8 +77,8 @@ return {
       desc = "Comment line in insert mode",
     },
 
-    ["<C-Right>"] = { "<C-o><cmd>lua require('spider').motion('w')<CR>", desc = "Next word" },
-    ["<C-Left>"] = { "<C-o><cmd>lua require('spider').motion('b')<CR>", desc = "Previous word" },
+    -- ["<C-Right>"] = { "<C-o><cmd>lua require('spider').motion('w')<CR>", desc = "Next word" },
+    -- ["<C-Left>"] = { "<C-o><cmd>lua require('spider').motion('b')<CR>", desc = "Previous word" },
   },
   v = {
     ["<C-c>"] = { "y", desc = "Copy selected lines" },
