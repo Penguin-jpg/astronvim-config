@@ -97,7 +97,7 @@ return {
   -- Word/line substitution support
   {
     "gbprod/substitute.nvim",
-    event = "Use AstroFile",
+    event = "User AstroFile",
     opts = {},
   },
 }
