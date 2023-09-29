@@ -94,4 +94,10 @@ return {
     },
     opts = {},
   },
+  -- Word/line substitution support
+  {
+    "gbprod/substitute.nvim",
+    event = "Use AstroFile",
+    opts = {},
+  },
 }

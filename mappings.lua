@@ -11,10 +11,9 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
-          require("astronvim.utils.buffer").close(
-            bufnr)
-        end)
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+        )
       end,
       desc = "Pick to close",
     },
@@ -38,8 +37,8 @@ return {
     ["<C-z>"] = { "u", desc = "Undo" },
 
     ["<leader>un"] = {
-      function() require("notify").dismiss({ slient = true, pending = true }) end,
-      desc = "Dismiss all notifications"
+      function() require("notify").dismiss { silent = true, pending = true } end,
+      desc = "Dismiss all notifications",
     },
 
     -- Custom mappings for nvim-gomove
@@ -57,8 +56,24 @@ return {
     ["<A-RightMouse>"] = { "<Plug>(VM-Mouse-Word)", desc = "Select a word at clicked position" },
     ["<A-MiddleMouse>"] = { "<Plug>(VM-Mouse-Column)", desc = "Add cursors up to last clicked position" },
 
-    -- Open ssr
-    ["<leader>sr"] = { function() require("ssr").open() end, desc = "Open ssr" },
+    -- Custom mappings for word/line substitution
+    ["<leader>s"] = {
+      function() require("substitute").operator { subject = { motion = "iw" } } end,
+      desc = "Enable substitute operator",
+    },
+    ["<leader>sl"] = {
+      function() require("substitute").line() end,
+      desc = "Substitute current line with value in register",
+    },
+    -- ["<leader>se"] = { function() require("substitute").eol() end }, not sure what this function do
+    ["<leader>sr"] = {
+      function() require("substitute.range").operator { subject = { motion = "iw" }, range = { motion = "ap" } } end,
+      desc = "Enable range substitute operator to replace matched words within cursor range",
+    },
+    ["<leader>sa"] = {
+      function() require("substitute.range").operator { subject = { motion = "iw" }, range = "%" } end,
+      desc = "Enable range substitute operator to replace all matched words",
+    },
   },
   t = {
     -- setting a mapping to false will disable it
@@ -83,8 +98,9 @@ return {
   },
   v = {
     ["<C-c>"] = { "y", desc = "Copy selected lines" },
-    ["<C-_>"] = { "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
-      desc = "Toggle comment line"
+    ["<C-_>"] = {
+      "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+      desc = "Toggle comment line",
     },
 
     -- Custom mappings for nvim-gomove
@@ -96,5 +112,12 @@ return {
     ["<S-Down>"] = { "<Plug>GoVSDDown", desc = "Duplicate block and paste it below" },
     ["<S-Left>"] = { "<Plug>GoVSDLeft", desc = "Duplicate block and paste it left" },
     ["<S-Right>"] = { "<Plug>GoVSDRight", desc = "Duplicate block and paste it right" },
-  }
+
+    -- Custom mappings for word/line substitution
+    ["<leader>s"] = { function() require("substitute").visual() end, desc = "Enable substitute operator" },
+    ["<leader>sr"] = {
+      "<cmd>lua require('substitute.range').visual()<cr>ap",
+      desc = "Enable range substitute operator",
+    },
+  },
 }
