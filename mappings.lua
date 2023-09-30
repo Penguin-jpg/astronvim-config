@@ -45,6 +45,10 @@ return {
       function() require("notify").dismiss { silent = true, pending = true } end,
       desc = "Dismiss all notifications",
     },
+    ["<leader>fp"] = {
+      "<cmd>lua require('telescope').extensions.project.project{}<cr>",
+      desc = "Find projects",
+    },
 
     -- Custom mappings for nvim-gomove
     ["<A-Up>"] = { "<Plug>GoNSMUp", desc = "Move line up" },

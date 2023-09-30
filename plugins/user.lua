@@ -93,4 +93,10 @@ return {
     event = "User AstroFile",
     opts = {},
   },
+  -- Project management support
+  {
+    "nvim-telescope/telescope-project.nvim",
+    event = "VeryLazy",
+    config = function() require("telescope").load_extension "project" end,
+  },
 }
