@@ -10,7 +10,7 @@ return {
         "lua_ls",
         "clangd",
         "pyright",
-        "ruff-lsp",
+        "ruff_lsp",
       })
     end,
   },
