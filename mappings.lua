@@ -3,6 +3,11 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
+
+local sections = {
+  s = { desc = "Substitute" },
+}
+
 return {
   -- first key is the mode
   n = {
@@ -57,9 +62,10 @@ return {
     ["<A-MiddleMouse>"] = { "<Plug>(VM-Mouse-Column)", desc = "Add cursors up to last clicked position" },
 
     -- Custom mappings for word/line substitution
-    ["<leader>s"] = {
-      function() require("substitute").operator { subject = { motion = "iw" } } end,
-      desc = "Enable substitute operator",
+    ["<leader>s"] = sections.s,
+    ["<leader>se"] = {
+      function() require("substitute").eol() end,
+      desc = "Substitute from cursor to eol to value in register",
     },
     ["<leader>sl"] = {
       function() require("substitute").line() end,
@@ -68,11 +74,11 @@ return {
     -- ["<leader>se"] = { function() require("substitute").eol() end }, not sure what this function do
     ["<leader>sr"] = {
       function() require("substitute.range").operator { subject = { motion = "iw" }, range = { motion = "ap" } } end,
-      desc = "Enable range substitute operator to replace matched words within cursor range",
+      desc = "Substitue matched words within cursor range to input value",
     },
     ["<leader>sa"] = {
       function() require("substitute.range").operator { subject = { motion = "iw" }, range = "%" } end,
-      desc = "Enable range substitute operator to replace all matched words",
+      desc = "Substitute all matched words to input value",
     },
   },
   t = {
@@ -114,10 +120,10 @@ return {
     ["<S-Right>"] = { "<Plug>GoVSDRight", desc = "Duplicate block and paste it right" },
 
     -- Custom mappings for word/line substitution
-    ["<leader>s"] = { function() require("substitute").visual() end, desc = "Enable substitute operator" },
-    ["<leader>sr"] = {
-      "<cmd>lua require('substitute.range').visual()<cr>ap",
-      desc = "Enable range substitute operator",
+    ["<leader>s"] = sections.s,
+    ["<leader>sv"] = {
+      function() require("substitute").visual() end,
+      desc = "Substitute selected block with value in register",
     },
   },
 }

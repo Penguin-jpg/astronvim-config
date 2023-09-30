@@ -9,4 +9,6 @@ return {
 
   -- Commandline completion
   { import = "astrocommunity.completion.cmp-cmdline" },
+  -- TODO comment support
+  { import = "astrocommunity.editing-support/todo-comments-nvim" },
 }

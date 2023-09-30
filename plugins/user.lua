@@ -32,13 +32,6 @@ return {
       })
     end,
   },
-  -- Add TODO comments support
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    event = "User AstroFile",
-    cmd = { "TodoQuickFix" },
-  },
   -- Move/duplicate lines up/down/left/right
   {
     "booperlv/nvim-gomove",
