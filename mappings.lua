@@ -41,6 +41,53 @@ return {
     },
     ["<C-z>"] = { "u", desc = "Undo" },
 
+    -- TODO: Custom smart moving like vscode
+    ["<C-Right>"] = {
+      function()
+        -- Get line where cursor at.... ...
+        local line = vim.fn.getline "."
+        -- Get position of cursor
+        local cursor_row, cursor_col = unpack(vim.api.nvim_win_get_cursor(0))
+        -- Get length of current line
+        local line_length = string.len(line)
+
+        -- Nvim row and col is 0-based, need to +1
+        cursor_row = cursor_row + 1
+        cursor_col = cursor_col + 1
+
+        -- If curosr at the end of line or there are stil non-space character
+        if cursor_col == line_length or string.match(string.sub(line, cursor_col), "%s") then
+          require("spider").motion "w"
+        else
+          require("spider").motion "e"
+        end
+      end,
+    },
+    ["<C-Left>"] = {
+      function()
+        -- Get line where cursor at
+        local line = vim.fn.getline "."
+        -- Get column position of cursor
+        local cursor_pos = vim.fn.col "."
+        -- Get current word under cursor
+        local current_word = vim.fn.expand "<cword>"
+        -- If curent word is special character (some punctuations)
+        if string.match(current_word, "%p") then current_word = "\\" .. current_word end
+        -- If there are spaces in front of current word
+        local word_with_spaces = string.match(line, "^%s+" .. current_word)
+
+        -- If current word is the only word in this line like "else" or "end"
+        if word_with_spaces == line then
+          require("spider").motion "b"
+          -- If cursor at start of line or at the first word of line
+        elseif cursor_pos == 1 or word_with_spaces then
+          require("spider").motion "ge"
+        else
+          require("spider").motion "b"
+        end
+      end,
+    },
+
     ["<leader>un"] = {
       function() require("notify").dismiss { silent = true, pending = true } end,
       desc = "Dismiss all notifications",
