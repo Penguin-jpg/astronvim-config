@@ -11,4 +11,6 @@ return {
   { import = "astrocommunity.completion.cmp-cmdline" },
   -- TODO comment support
   { import = "astrocommunity.editing-support/todo-comments-nvim" },
+  -- Prettier diagnostics, references, telescope results, quickfix and location list
+  { import = "astrocommunity.diagnostics.trouble-nvim"},
 }
