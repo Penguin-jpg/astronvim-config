@@ -41,23 +41,41 @@ return {
     },
     ["<C-z>"] = { "u", desc = "Undo" },
 
-    -- TODO: Custom smart moving like vscode
+    -- TODO: Handle cases like punctuations
     ["<C-Right>"] = {
       function()
-        -- Get line where cursor at.... ...
+        -- Get line where cursor at
         local line = vim.fn.getline "."
         -- Get position of cursor
         local cursor_row, cursor_col = unpack(vim.api.nvim_win_get_cursor(0))
         -- Get length of current line
         local line_length = string.len(line)
+        -- Get current word under cursor
+        local current_word = vim.fn.expand "<cword>"
 
-        -- Nvim row and col is 0-based, need to +1
-        cursor_row = cursor_row + 1
+        -- Nvim col is 0-based, need to +1
         cursor_col = cursor_col + 1
 
+        -- Substring of current line (start from cursor position)
+        local sub_line = string.sub(line, cursor_col)
+
         -- If curosr at the end of line or there are stil non-space character
-        if cursor_col == line_length or string.match(string.sub(line, cursor_col), "%s") then
+        if cursor_col == line_length or string.match(sub_line, "%s") then
           require("spider").motion "w"
+          -- If there exists punctuations
+        elseif string.match(sub_line, "[%p]+") then
+          -- Get relative positions of punctutations
+          local punc_start, punc_end = string.find(sub_line, "[%p]+")
+          -- Move to end of line
+          if cursor_col + punc_end - 1 == line_length then
+            vim.api.nvim_feedkeys("$", "n", false)
+            -- If there is only one punctuation, skip it
+          elseif punc_start == punc_end then
+            require("spider").motion "w"
+            -- Otherwise, move cursor to start of punctuation string
+          else
+            vim.fn.cursor(cursor_row, cursor_col + punc_start - 1)
+          end
         else
           require("spider").motion "e"
         end
