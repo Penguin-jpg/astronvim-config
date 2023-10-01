@@ -50,8 +50,6 @@ return {
         local cursor_row, cursor_col = unpack(vim.api.nvim_win_get_cursor(0))
         -- Get length of current line
         local line_length = string.len(line)
-        -- Get current word under cursor
-        local current_word = vim.fn.expand "<cword>"
 
         -- Nvim col is 0-based, need to +1
         cursor_col = cursor_col + 1
@@ -74,7 +72,15 @@ return {
             require("spider").motion "w"
             -- Otherwise, move cursor to start of punctuation string
           else
-            vim.fn.cursor(cursor_row, cursor_col + punc_start - 1)
+            -- The amount that cursor need to move to deal with punctuations
+            local move_amount = punc_start - 1
+            -- Handle cases that make move_amount equals to 0
+            if move_amount == 0 then
+              vim.fn.cursor(cursor_row, cursor_col + punc_end)
+              -- Move to punctuations
+            else
+              vim.fn.cursor(cursor_row, cursor_col + punc_start - 1)
+            end
           end
         else
           require("spider").motion "e"
