@@ -41,7 +41,10 @@ return {
     },
     ["<C-z>"] = { "u", desc = "Undo" },
 
-    -- TODO: Handle cases like punctuations
+    ["<C-Right>"] = { "<Plug>WordMotion_w", desc = "Next word" },
+    ["<C-Left>"] = { "<Plug>WordMotion_b", desc = "Previous word" },
+
+    -- NOTE: leave this part for now and change to vim-wordmotion
     -- ["<C-Right>"] = {
     --   function()
     --     -- Get line where cursor at
