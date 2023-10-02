@@ -131,11 +131,6 @@ return {
     ["<S-Left>"] = { "<Plug>GoNSDLeft", desc = "Duplicate line and paste it left" },
     ["<S-Right>"] = { "<Plug>GoNSDRight", desc = "Duplicate line and paste it right" },
 
-    -- Custom mappings for vim-visual-multi
-    ["<A-LeftMouse>"] = { "<Plug>(VM-Mouse-Cursor)", desc = "Add a curosr at clicked position" },
-    ["<A-RightMouse>"] = { "<Plug>(VM-Mouse-Word)", desc = "Select a word at clicked position" },
-    ["<A-MiddleMouse>"] = { "<Plug>(VM-Mouse-Column)", desc = "Add cursors up to last clicked position" },
-
     -- Custom mappings for word/line substitution
     ["<leader>s"] = sections.s,
     ["<leader>se"] = {

@@ -49,12 +49,6 @@ return {
       }
     end,
   },
-  -- Multi-cursors support
-  {
-    "Penguin-jpg/vim-visual-multi",
-    event = "User AstroFile",
-    branch = "custom",
-  },
   -- Better move by word support
   {
     "chrisgrieser/nvim-spider",
