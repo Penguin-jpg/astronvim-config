@@ -42,75 +42,75 @@ return {
     ["<C-z>"] = { "u", desc = "Undo" },
 
     -- TODO: Handle cases like punctuations
-    ["<C-Right>"] = {
-      function()
-        -- Get line where cursor at
-        local line = vim.fn.getline "."
-        -- Get position of cursor
-        local cursor_row, cursor_col = unpack(vim.api.nvim_win_get_cursor(0))
-        -- Get length of current line
-        local line_length = string.len(line)
+    -- ["<C-Right>"] = {
+    --   function()
+    --     -- Get line where cursor at
+    --     local line = vim.fn.getline "."
+    --     -- Get position of cursor
+    --     local cursor_row, cursor_col = unpack(vim.api.nvim_win_get_cursor(0))
+    --     -- Get length of current line
+    --     local line_length = string.len(line)
 
-        -- Nvim col is 0-based, need to +1
-        cursor_col = cursor_col + 1
+    --     -- Nvim col is 0-based, need to +1
+    --     cursor_col = cursor_col + 1
 
-        -- Substring of current line (start from cursor position)
-        local sub_line = string.sub(line, cursor_col)
+    --     -- Substring of current line (start from cursor position)
+    --     local sub_line = string.sub(line, cursor_col)
 
-        -- If curosr at the end of line or there are stil non-space character
-        if cursor_col == line_length or string.match(sub_line, "%s") then
-          require("spider").motion "w"
-          -- If there exists punctuations
-        elseif string.match(sub_line, "[%p]+") then
-          -- Get relative positions of punctutations
-          local punc_start, punc_end = string.find(sub_line, "[%p]+")
-          -- Move to end of line
-          if cursor_col + punc_end - 1 == line_length then
-            vim.api.nvim_feedkeys("$", "n", false)
-            -- If there is only one punctuation, skip it
-          elseif punc_start == punc_end then
-            require("spider").motion "w"
-            -- Otherwise, move cursor to start of punctuation string
-          else
-            -- The amount that cursor need to move to deal with punctuations
-            local move_amount = punc_start - 1
-            -- Handle cases that make move_amount equals to 0
-            if move_amount == 0 then
-              vim.fn.cursor(cursor_row, cursor_col + punc_end)
-              -- Move to punctuations
-            else
-              vim.fn.cursor(cursor_row, cursor_col + punc_start - 1)
-            end
-          end
-        else
-          require("spider").motion "e"
-        end
-      end,
-    },
-    ["<C-Left>"] = {
-      function()
-        -- Get line where cursor at
-        local line = vim.fn.getline "."
-        -- Get column position of cursor
-        local cursor_pos = vim.fn.col "."
-        -- Get current word under cursor
-        local current_word = vim.fn.expand "<cword>"
-        -- If curent word is special character (some punctuations)
-        if string.match(current_word, "%p") then current_word = "\\" .. current_word end
-        -- If there are spaces in front of current word
-        local word_with_spaces = string.match(line, "^%s+" .. current_word)
+    --     -- If curosr at the end of line or there are stil non-space character
+    --     if cursor_col == line_length or string.match(sub_line, "%s") then
+    --       require("spider").motion "w"
+    --       -- If there exists punctuations
+    --     elseif string.match(sub_line, "[%p]+") then
+    --       -- Get relative positions of punctutations
+    --       local punc_start, punc_end = string.find(sub_line, "[%p]+")
+    --       -- Move to end of line
+    --       if cursor_col + punc_end - 1 == line_length then
+    --         vim.api.nvim_feedkeys("$", "n", false)
+    --         -- If there is only one punctuation, skip it
+    --       elseif punc_start == punc_end then
+    --         require("spider").motion "w"
+    --         -- Otherwise, move cursor to start of punctuation string
+    --       else
+    --         -- The amount that cursor need to move to deal with punctuations
+    --         local move_amount = punc_start - 1
+    --         -- Handle cases that make move_amount equals to 0
+    --         if move_amount == 0 then
+    --           vim.fn.cursor(cursor_row, cursor_col + punc_end)
+    --           -- Move to punctuations
+    --         else
+    --           vim.fn.cursor(cursor_row, cursor_col + punc_start - 1)
+    --         end
+    --       end
+    --     else
+    --       require("spider").motion "e"
+    --     end
+    --   end,
+    -- },
+    -- ["<C-Left>"] = {
+    --   function()
+    --     -- Get line where cursor at
+    --     local line = vim.fn.getline "."
+    --     -- Get column position of cursor
+    --     local cursor_pos = vim.fn.col "."
+    --     -- Get current word under cursor
+    --     local current_word = vim.fn.expand "<cword>"
+    --     -- If curent word is special character (some punctuations)
+    --     if string.match(current_word, "%p") then current_word = "\\" .. current_word end
+    --     -- If there are spaces in front of current word
+    --     local word_with_spaces = string.match(line, "^%s+" .. current_word)
 
-        -- If current word is the only word in this line like "else" or "end"
-        if word_with_spaces == line then
-          require("spider").motion "b"
-          -- If cursor at start of line or at the first word of line
-        elseif cursor_pos == 1 or word_with_spaces then
-          require("spider").motion "ge"
-        else
-          require("spider").motion "b"
-        end
-      end,
-    },
+    --     -- If current word is the only word in this line like "else" or "end"
+    --     if word_with_spaces == line then
+    --       require("spider").motion "b"
+    --       -- If cursor at start of line or at the first word of line
+    --     elseif cursor_pos == 1 or word_with_spaces then
+    --       require("spider").motion "ge"
+    --     else
+    --       require("spider").motion "b"
+    --     end
+    --   end,
+    -- },
 
     ["<leader>un"] = {
       function() require("notify").dismiss { silent = true, pending = true } end,
