@@ -50,36 +50,8 @@ return {
     end,
   },
   -- Better move by word support
-  {
-    "chrisgrieser/nvim-spider",
-    lazy = true,
-    keys = {
-      {
-        "w",
-        "<cmd>lua require('spider').motion('w')<cr>",
-        mode = { "n", "x", "o" },
-        desc = "Next word",
-      },
-      {
-        "e",
-        "<cmd>lua require('spider').motion('e')<cr>",
-        mode = { "n", "x", "o" },
-        desc = "Next end of word",
-      },
-      {
-        "b",
-        "<cmd>lua require('spider').motion('b')<cr>",
-        mode = { "n", "x", "o" },
-        desc = "Previous word",
-      },
-      {
-        "ge",
-        "<cmd>lua require('spider').motion('ge')<cr>",
-        mode = { "n", "x", "o" },
-        desc = "Previous end of word",
-      },
-    },
-    opts = {},
+  {"chaoren/vim-wordmotion",
+    event = 'VeryLazy',
   },
   -- Word/line substitution support
   {
