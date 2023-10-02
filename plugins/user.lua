@@ -53,6 +53,16 @@ return {
   {"chaoren/vim-wordmotion",
     event = 'VeryLazy',
   },
+  -- Split or join blocks of code
+  {
+    "Wansmer/treesj",
+    event = "User AstroFile",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function() require("treesj").setup { use_default_keymaps = false } end,
+    keys = {
+      { "sj", mode = { "n", "x", "i" }, function() require("treesj").toggle() end, desc = "Split or join" },
+    },
+  },
   -- Word/line substitution support
   {
     "gbprod/substitute.nvim",
