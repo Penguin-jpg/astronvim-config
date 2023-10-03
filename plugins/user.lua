@@ -69,6 +69,12 @@ return {
     event = "User AstroFile",
     opts = {},
   },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "User AstroFile",
+    opts = {},
+  },
   -- Project management support
   {
     "nvim-telescope/telescope-project.nvim",
