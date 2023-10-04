@@ -72,7 +72,7 @@ return {
   -- Faster change/delete/replace delimiter pairs
   {
     "echasnovski/mini.surround",
-    opts = {}
+    opts = {},
     {
       "echasnovski/mini.surround",
       keys = function(plugin, keys)

@@ -7,7 +7,7 @@ local surround_icon = vim.g.icons_enabled and "󰑤 " or ""
 
 local sections = {
   r = { desc = "Substitute" },
-  s = { desc = surround_icon .. "Surround" }
+  s = { desc = surround_icon .. "Surround" },
 }
 
 return {
