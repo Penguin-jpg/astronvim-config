@@ -3,8 +3,11 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
+local surround_icon = vim.g.icons_enabled and "󰑤 " or ""
+
 local sections = {
   r = { desc = "Substitute" },
+  s = { desc = surround_icon .. "Surround" }
 }
 
 return {
@@ -151,6 +154,9 @@ return {
       function() require("substitute.range").operator { subject = { motion = "iw" }, range = "%" } end,
       desc = "Substitute all matched words to input value",
     },
+
+    -- Custom mappings for surround
+    ["<leader>s"] = sections.s,
   },
   t = {
     -- setting a mapping to false will disable it
