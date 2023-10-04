@@ -3,9 +3,8 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
-
 local sections = {
-  s = { desc = "Substitute" },
+  r = { desc = "Substitute" },
 }
 
 return {
@@ -135,21 +134,20 @@ return {
     ["<S-Right>"] = { "<Plug>GoNSDRight", desc = "Duplicate line and paste it right" },
 
     -- Custom mappings for word/line substitution
-    ["<leader>s"] = sections.s,
-    ["<leader>se"] = {
-      function() require("substitute").eol() end,
-      desc = "Substitute from cursor to eol to value in register",
-    },
-    ["<leader>sl"] = {
+    ["<leader>r"] = sections.r,
+    ["<leader>rr"] = {
       function() require("substitute").line() end,
       desc = "Substitute current line with value in register",
     },
-    -- ["<leader>se"] = { function() require("substitute").eol() end }, not sure what this function do
-    ["<leader>sr"] = {
+    ["<leader>re"] = {
+      function() require("substitute").eol() end,
+      desc = "Substitute from cursor to eol to value in register",
+    },
+    ["<leader>rw"] = {
       function() require("substitute.range").operator { subject = { motion = "iw" }, range = { motion = "ap" } } end,
       desc = "Substitue matched words within cursor range to input value",
     },
-    ["<leader>sa"] = {
+    ["<leader>ra"] = {
       function() require("substitute.range").operator { subject = { motion = "iw" }, range = "%" } end,
       desc = "Substitute all matched words to input value",
     },
@@ -193,10 +191,17 @@ return {
     ["<S-Right>"] = { "<Plug>GoVSDRight", desc = "Duplicate block and paste it right" },
 
     -- Custom mappings for word/line substitution
-    ["<leader>s"] = sections.s,
-    ["<leader>sv"] = {
+    ["<leader>rr"] = {
       function() require("substitute").visual() end,
       desc = "Substitute selected block with value in register",
+    },
+    ["<leader>rw"] = {
+      function() require("substitute.range").visual { subject = { motion = "iw" }, range = { motion = "ap" } } end,
+      desc = "Substitue matched words within cursor range to input value",
+    },
+    ["<leader>ra"] = {
+      function() require("substitute.range").visual { subject = { motion = "iw" }, range = "%" } end,
+      desc = "Substitute all matched words to input value",
     },
   },
 }
