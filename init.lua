@@ -59,8 +59,7 @@ return {
         },
         cmd = {
           "clangd",
-          "--background-index"
-          "--suggest-missing-includes",
+          "--background-index",
           "--clang-tidy",
           "--all-scopes-completion",
           "--header-insertion=iwyu",
