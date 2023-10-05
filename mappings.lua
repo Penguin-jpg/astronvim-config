@@ -3,10 +3,11 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
+local replace_icon = vim.g.icons_enabled and "⟺ " or ""
 local surround_icon = vim.g.icons_enabled and "󰑤 " or ""
 
 local sections = {
-  r = { desc = "Replace" },
+  R = { desc = replace_icon .. "Replace" },
   s = { desc = surround_icon .. "Surround" },
 }
 
@@ -137,20 +138,20 @@ return {
     ["<S-Right>"] = { "<Plug>GoNSDRight", desc = "Duplicate line and paste it right" },
 
     -- Custom mappings for word/line substitution
-    ["<leader>r"] = sections.r,
-    ["<leader>rr"] = {
+    ["<leader>R"] = sections.R,
+    ["<leader>Rr"] = {
       function() require("substitute").line() end,
       desc = "Replace line with register value",
     },
-    ["<leader>re"] = {
+    ["<leader>Re"] = {
       function() require("substitute").eol() end,
       desc = "Replace from cursor to eol with register value",
     },
-    ["<leader>rw"] = {
+    ["<leader>Rw"] = {
       function() require("substitute.range").operator { subject = { motion = "iw" }, range = { motion = "ap" } } end,
       desc = "Replace matched words with input value",
     },
-    ["<leader>ra"] = {
+    ["<leader>Ra"] = {
       function() require("substitute.range").operator { subject = { motion = "iw" }, range = "%" } end,
       desc = "Replace all matched words with input value",
     },
@@ -197,15 +198,15 @@ return {
     ["<S-Right>"] = { "<Plug>GoVSDRight", desc = "Duplicate block and paste it right" },
 
     -- Custom mappings for word/line substitution
-    ["<leader>rr"] = {
+    ["<leader>Rr"] = {
       function() require("substitute").visual() end,
       desc = "Replace selected block with register value",
     },
-    ["<leader>rw"] = {
+    ["<leader>Rw"] = {
       function() require("substitute.range").visual { subject = { motion = "iw" }, range = { motion = "ap" } } end,
       desc = "Replace matched words with input value",
     },
-    ["<leader>ra"] = {
+    ["<leader>Ra"] = {
       function() require("substitute.range").visual { subject = { motion = "iw" }, range = "%" } end,
       desc = "Replace all matched words with input value",
     },
