@@ -6,7 +6,7 @@
 local surround_icon = vim.g.icons_enabled and "󰑤 " or ""
 
 local sections = {
-  r = { desc = "Substitute" },
+  r = { desc = "Replace" },
   s = { desc = surround_icon .. "Surround" },
 }
 
@@ -140,19 +140,19 @@ return {
     ["<leader>r"] = sections.r,
     ["<leader>rr"] = {
       function() require("substitute").line() end,
-      desc = "Substitute current line with value in register",
+      desc = "Replace line with register value",
     },
     ["<leader>re"] = {
       function() require("substitute").eol() end,
-      desc = "Substitute from cursor to eol to value in register",
+      desc = "Replace from cursor to eol with register value",
     },
     ["<leader>rw"] = {
       function() require("substitute.range").operator { subject = { motion = "iw" }, range = { motion = "ap" } } end,
-      desc = "Substitue matched words within cursor range to input value",
+      desc = "Replace matched words with input value",
     },
     ["<leader>ra"] = {
       function() require("substitute.range").operator { subject = { motion = "iw" }, range = "%" } end,
-      desc = "Substitute all matched words to input value",
+      desc = "Replace all matched words with input value",
     },
 
     -- Custom mappings for surround
@@ -199,15 +199,15 @@ return {
     -- Custom mappings for word/line substitution
     ["<leader>rr"] = {
       function() require("substitute").visual() end,
-      desc = "Substitute selected block with value in register",
+      desc = "Replace selected block with register value",
     },
     ["<leader>rw"] = {
       function() require("substitute.range").visual { subject = { motion = "iw" }, range = { motion = "ap" } } end,
-      desc = "Substitue matched words within cursor range to input value",
+      desc = "Replace matched words with input value",
     },
     ["<leader>ra"] = {
       function() require("substitute.range").visual { subject = { motion = "iw" }, range = "%" } end,
-      desc = "Substitute all matched words to input value",
+      desc = "Replace all matched words with input value",
     },
   },
 }
