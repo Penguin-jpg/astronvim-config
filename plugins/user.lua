@@ -10,10 +10,6 @@ return {
   --   end,
   -- },
 
-  -- Kanagawa colorscheme
-  {
-    "rebelot/kanagawa.nvim",
-  },
   -- Additional features for Clangd
   {
     "p00f/clangd_extensions.nvim",

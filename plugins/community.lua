@@ -8,6 +8,10 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
 
+  -- Colorscheme
+  { import = "astrocommunity.colorscheme.kanagawa-nvim" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
+
   -- Commandline completion
   { import = "astrocommunity.completion.cmp-cmdline" },
   -- TODO comment support
