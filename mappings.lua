@@ -5,10 +5,12 @@
 -- automatically pick-up stored data by this setting.)
 local replace_icon = vim.g.icons_enabled and "⟺ " or ""
 local surround_icon = vim.g.icons_enabled and "󰑤 " or ""
+local refactor_icon = vim.g.icons_enabled and "󱍼 " or ""
 
 local sections = {
   R = { desc = replace_icon .. "Replace" },
   s = { desc = surround_icon .. "Surround" },
+  r = { desc = refactor_icon .. "Refactor" },
 }
 
 return {
@@ -158,6 +160,9 @@ return {
 
     -- Custom mappings for surround
     ["<leader>s"] = sections.s,
+
+    -- Custom mappings for refactor
+    ["<leader>r"] = sections.r,
   },
   t = {
     -- setting a mapping to false will disable it
