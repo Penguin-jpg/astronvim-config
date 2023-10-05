@@ -16,4 +16,6 @@ return {
   { import = "astrocommunity.diagnostics.trouble-nvim"},
   -- Faster navigation, character motions
   { import = "astrocommunity.motion.flash-nvim" },
+  -- Bracket pair colorize
+  { import = "astrocommunity.editing-support/rainbow-delimiters-nvim" },
 }
