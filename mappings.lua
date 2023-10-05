@@ -203,6 +203,7 @@ return {
     ["<S-Right>"] = { "<Plug>GoVSDRight", desc = "Duplicate block and paste it right" },
 
     -- Custom mappings for word/line substitution
+    ["<leader>R"] = sections.R,
     ["<leader>Rr"] = {
       function() require("substitute").visual() end,
       desc = "Replace selected block with register value",
@@ -215,5 +216,11 @@ return {
       function() require("substitute.range").visual { subject = { motion = "iw" }, range = "%" } end,
       desc = "Replace all matched words with input value",
     },
+
+    -- Custom mappings for surround
+    ["<leader>s"] = sections.s,
+
+    -- Custom mappings for refactor
+    ["<leader>r"] = sections.r,
   },
 }

@@ -105,19 +105,19 @@ return {
     keys = function(plugin, keys)
       local mappings = {
         {
-          "<leader>ref",
+          "<leader>rf",
           function() require("refactoring").refactor("Extract Function") end,
           mode = { "x" },
           desc = "Extract Function",
         },
         {
-          "<leader>rff",
+          "<leader>rF",
           function() require("refactoring").refactor("Extract Function To File") end,
           mode = { "x" },
           desc = "Extract Function To File",
         },
         {
-          "<leader>rev",
+          "<leader>rv",
           function() require("refactoring").refactor("Extract Variable") end,
           mode = { "x" },
           desc = "Extract Variable",
@@ -129,38 +129,34 @@ return {
           desc = "Inline Variable",
         },
         {
-          "<leader>reb",
+          "<leader>rb",
           function() require("refactoring").refactor "Extract Block" end,
           mode = { "n" },
           desc = "Extract Block",
         },
         {
-          "<leader>rfb",
+          "<leader>rB",
           function() require("refactoring").refactor "Extract Block To File" end,
           mode = { "n" },
           desc = "Extract Block To File",
         },
-        {
-          "<leader>rdf",
-          function() require("refactoring").debug.printf { below = false } end,
-          mode = { "n" },
-          desc = "Debug: Print Function",
-        },
-        {
-          "<leader>rdv",
-          function() require("refactoring").debug.print_var { below = false } end,
-          mode = { "n", "x" },
-          desc = "Debug: Print Variable",
-        },
-        {
-          "<leader>rdc",
-          function() require("refactoring").debug.cleanup {} end,
-          mode = { "n" },
-          desc = "Debug: Clean Up",
-        },
       }
       return vim.list_extend(mappings, keys)
-    end
+    end,
+    config = function()
+      require("refactoring").setup({
+        -- prompt for return type
+        prompt_func_return_type = {
+          cpp = true,
+          c = true,
+        },
+        -- prompt for function parameters
+        prompt_func_param_type = {
+          cpp = true,
+          c = true,
+        },
+      })
+    end,
   },
   -- Project management support
   {
