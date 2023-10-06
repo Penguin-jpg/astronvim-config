@@ -5,12 +5,10 @@
 -- automatically pick-up stored data by this setting.)
 local replace_icon = vim.g.icons_enabled and "⟺ " or ""
 local surround_icon = vim.g.icons_enabled and "󰑤 " or ""
-local refactor_icon = vim.g.icons_enabled and "󱍼 " or ""
 
 local sections = {
-  R = { desc = replace_icon .. "Replace" },
+  r = { desc = replace_icon .. "Replace" },
   s = { desc = surround_icon .. "Surround" },
-  r = { desc = refactor_icon .. "Refactor" },
 }
 
 return {
@@ -30,8 +28,6 @@ return {
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
-    -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
 
     -- Resize window
     ["<C-A-Up>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" },
@@ -136,33 +132,27 @@ return {
     ["<A-Right>"] = { "<Plug>GoNSMRight", desc = "Move line right" },
     ["<S-Up>"] = { "<Plug>GoNSDUp", desc = "Duplicate line and paste it above" },
     ["<S-Down>"] = { "<Plug>GoNSDDown", desc = "Duplicate line and paste it below" },
-    ["<S-Left>"] = { "<Plug>GoNSDLeft", desc = "Duplicate line and paste it left" },
-    ["<S-Right>"] = { "<Plug>GoNSDRight", desc = "Duplicate line and paste it right" },
 
     -- Custom mappings for word/line substitution
-    ["<leader>R"] = sections.R,
-    ["<leader>Rr"] = {
+    ["<leader>rr"] = {
       function() require("substitute").line() end,
       desc = "Replace line with register value",
     },
-    ["<leader>Re"] = {
+    ["<leader>re"] = {
       function() require("substitute").eol() end,
       desc = "Replace from cursor to eol with register value",
     },
-    ["<leader>Rw"] = {
+    ["<leader>rw"] = {
       function() require("substitute.range").operator { subject = { motion = "iw" }, range = { motion = "ap" } } end,
       desc = "Replace matched words with input value",
     },
-    ["<leader>Ra"] = {
+    ["<leader>ra"] = {
       function() require("substitute.range").operator { subject = { motion = "iw" }, range = "%" } end,
       desc = "Replace all matched words with input value",
     },
 
     -- Custom mappings for surround
     ["<leader>s"] = sections.s,
-
-    -- Custom mappings for refactor
-    ["<leader>r"] = sections.r,
   },
   t = {
     -- setting a mapping to false will disable it
@@ -175,10 +165,8 @@ return {
     -- Use <C-o> to tempoarily exit insert mode and back to insert mode again
     ["<C-z>"] = { "<C-o>u", desc = "Undo in insert mode" },
     ["<C-r>"] = { "<C-o><C-r>", desc = "Redo in insert mode" },
-
     -- Unindent in insert mode
     ["<S-Tab>"] = { "<C-d>", desc = "Unindent line" },
-
     ["<C-_>"] = {
       function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Comment line in insert mode",
@@ -199,28 +187,23 @@ return {
     ["<A-Right>"] = { "<Plug>GoVSMRight", desc = "Move block right" },
     ["<S-Up>"] = { "<Plug>GoVSDUp", desc = "Duplicate block and paste it above" },
     ["<S-Down>"] = { "<Plug>GoVSDDown", desc = "Duplicate block and paste it below" },
-    ["<S-Left>"] = { "<Plug>GoVSDLeft", desc = "Duplicate block and paste it left" },
-    ["<S-Right>"] = { "<Plug>GoVSDRight", desc = "Duplicate block and paste it right" },
 
     -- Custom mappings for word/line substitution
-    ["<leader>R"] = sections.R,
-    ["<leader>Rr"] = {
+    ["<leader>r"] = sections.r,
+    ["<leader>rr"] = {
       function() require("substitute").visual() end,
       desc = "Replace selected block with register value",
     },
-    ["<leader>Rw"] = {
+    ["<leader>rw"] = {
       function() require("substitute.range").visual { subject = { motion = "iw" }, range = { motion = "ap" } } end,
       desc = "Replace matched words with input value",
     },
-    ["<leader>Ra"] = {
+    ["<leader>ra"] = {
       function() require("substitute.range").visual { subject = { motion = "iw" }, range = "%" } end,
       desc = "Replace all matched words with input value",
     },
 
     -- Custom mappings for surround
     ["<leader>s"] = sections.s,
-
-    -- Custom mappings for refactor
-    ["<leader>r"] = sections.r,
   },
 }

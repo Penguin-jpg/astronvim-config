@@ -110,9 +110,9 @@ return {
     --   command = "set keymodel=startsel,stopsel",
     -- })
     vim.api.nvim_create_autocmd("BufWinEnter", {
-      desc = "Automatically change cursor type to vertical line",
+      desc = "Automatically change cursor type to default setting",
       group = "auto-commands",
-      command = "set guicursor=i:ver100",
+      command = "set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20",
     })
     vim.api.nvim_create_autocmd("CursorHold", {
       desc = "Show diagnostics text when cursor hovers that line",
