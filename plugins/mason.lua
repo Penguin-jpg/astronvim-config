@@ -24,7 +24,6 @@ return {
         "stylua",
         "clang-format",
         "black",
-        "isort",
       })
     end,
   },
