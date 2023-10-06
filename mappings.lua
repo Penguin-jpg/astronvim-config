@@ -41,7 +41,7 @@ if is_available "Comment.nvim" then
     function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
     desc = "Comment line",
   }
-  maps.n["<C-_>"] = {
+  maps.v["<C-_>"] = {
     function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
     desc = "Comment line",
   }
@@ -59,8 +59,9 @@ maps.i["<C-H>"] = { "<C-w>", desc = { "Delete a word forward" } }
 maps.i["<C-Del>"] = { "<C-o>dw", desc = "Delete a word backward" }
 maps.i["<C-z>"] = { "<C-o>u", desc = "Undo" }
 maps.i["<C-r>"] = { "<C-o><C-r>", desc = "Redo" }
-maps.i["<S-Tab>"] = { "<C-d>", desc = "Unindent line" }
 maps.i["<C-s>"] = { "<cmd>w!<cr>", desc = "Save file" } 
+maps.v["<C-c>"] = { "y", desc = "Copy selected block" }
+maps.i["<S-Tab>"] = { "<C-d>", desc = "Unindent line" }
 maps.n["<leader>un"] = {
   function() require("notify").dismiss { silent = true, pending = true } end,
   desc = "Dismiss all notifications",
