@@ -24,4 +24,6 @@ return {
   { import = "astrocommunity.editing-support/rainbow-delimiters-nvim" },
   -- Smooth scrolling
   { import = "astrocommunity.scrolling.neoscroll-nvim" },
+  -- Transparent background
+  { import = "astrocommunity.color.transparent-nvim" },
 }
