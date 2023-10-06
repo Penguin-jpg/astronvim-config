@@ -3,6 +3,8 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
+local utils = require "astronvim.utils"
+local is_available = utils.is_available
 local replace_icon = vim.g.icons_enabled and "⟺ " or ""
 local surround_icon = vim.g.icons_enabled and "󰑤 " or ""
 
