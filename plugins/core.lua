@@ -64,5 +64,8 @@ return {
   -- },
 
   { "nvim-telescope/telescope-fzf-native.nvim", enabled = false },
+  { "max397574/better-escape.nvim", enabled = false },
+  { "s1n7ax/nvim-window-picker", enabled = false },
   { "mfussenegger/nvim-dap", enabled = true },
+
 }
