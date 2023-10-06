@@ -95,10 +95,4 @@ return {
       return vim.list_extend(mappings, keys)
     end,
   },
-  -- Project management support
-  {
-    "nvim-telescope/telescope-project.nvim",
-    event = "VeryLazy",
-    config = function() require("telescope").load_extension "project" end,
-  },
 }

@@ -22,4 +22,6 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
   -- Bracket pair colorize
   { import = "astrocommunity.editing-support/rainbow-delimiters-nvim" },
+  -- Smooth scrolling
+  { import = "astrocommunity.scrolling.neoscroll-nvim" },
 }
