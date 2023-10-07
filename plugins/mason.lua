@@ -24,6 +24,7 @@ return {
         "stylua",
         "clang-format",
         "black",
+        "prettier",
       })
     end,
   },
