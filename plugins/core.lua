@@ -4,7 +4,7 @@ return {
     "goolord/alpha-nvim",
     opts = function(_, opts)
       -- customize the dashboard header
-      opts.section.header.val = require "user.utils.alpha_theme".UWU
+      opts.section.header.val = require "user.alpha_themes".UWU
       return opts
     end,
   },
@@ -67,5 +67,4 @@ return {
   { "max397574/better-escape.nvim", enabled = false },
   { "s1n7ax/nvim-window-picker", enabled = false },
   { "mfussenegger/nvim-dap", enabled = true },
-
 }
