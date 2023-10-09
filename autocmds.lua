@@ -25,3 +25,8 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.diagnostic.open_float(nil, opts)
   end,
 })
+vim.api.nvim_create_autocmd("InsertEnter", {
+  desc = "Disable auto insert comment header",
+  group = "auto-commands",
+  command = "set formatoptions-=cro",
+})
