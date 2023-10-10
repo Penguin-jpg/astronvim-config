@@ -12,8 +12,6 @@ return {
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
 
-  -- Commandline completion
-  { import = "astrocommunity.completion.cmp-cmdline" },
   -- TODO comment support
   { import = "astrocommunity.editing-support/todo-comments-nvim" },
   -- Prettier diagnostics, references, telescope results, quickfix and location list

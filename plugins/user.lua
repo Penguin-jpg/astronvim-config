@@ -28,6 +28,69 @@ return {
       })
     end,
   },
+  -- Auto completion for commandline
+  {
+    "hrsh7th/cmp-cmdline",
+    opts = function()
+      local cmp = require "cmp"
+      local cmp_sources = require "cmp.config.sources"
+
+      local function has_words_before()
+        local line, col = (unpack or table.unpack)(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+      end
+
+      return {
+        mapping = {
+          ["<Up>"] = {
+            c = function(fallback)
+              if cmp.visible() then
+                cmp.select_prev_item()
+              else
+                fallback()
+              end
+            end,
+          },
+          ["<Down>"] = {
+            c = function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+              else
+                fallback()
+              end
+            end,
+          },
+          ["<Tab>"] = {
+            c = function(fallback)
+              if cmp.visible() and has_words_before() then
+                cmp.confirm { select = false }
+              else
+                fallback()
+              end
+            end,
+          },
+          ["<Esc>"] = { c = cmp.mapping.abort() },
+        },
+        sources = cmp_sources({
+          { name = "path" },
+        }, {
+          {
+            name = "cmdline",
+            option = {
+              ignore_cmds = { "Man", "!" },
+            },
+          },
+        }, {
+          { name = "buffer" },
+        }),
+      }
+    end,
+    config = function(_, opts) require("cmp").setup.cmdline(":", opts) end,
+    dependencies = {
+      "nvim-cmp",
+    },
+    event = { "CmdlineEnter" },
+  },
   -- Move/duplicate lines up/down/left/right
   {
     "booperlv/nvim-gomove",
@@ -46,7 +109,8 @@ return {
     end,
   },
   -- Better move by word support
-  {"chaoren/vim-wordmotion",
+  {
+    "chaoren/vim-wordmotion",
     event = "User AstroFile",
   },
   -- Split or join blocks of code
@@ -82,7 +146,7 @@ return {
     keys = {
       {
         "f",
-        mode = { "n", "o", "x" },
+        mode = { "n", "x", "o" },
         function() require("flash").jump() end,
         desc = "Flash",
       },
@@ -105,7 +169,7 @@ return {
         desc = "Treesitter Search",
       },
     },
-  },  
+  },
   -- Faster change/delete/replace delimiter pairs
   {
     "echasnovski/mini.surround",

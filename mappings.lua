@@ -62,8 +62,8 @@ maps.i["<C-r>"] = { "<C-o><C-r>", desc = "Redo" }
 maps.i["<C-s>"] = { "<cmd>w!<cr>", desc = "Save file" } 
 maps.v["<C-c>"] = { "y", desc = "Copy selected block" }
 maps.i["<S-Tab>"] = { "<C-d>", desc = "Unindent line" }
-if is_available "notify.nvim" then
-  maps.n["<leader>Un"] = {
+if is_available "nvim-notify" then
+  maps.n["<leader>un"] = {
     function() require("notify").dismiss { silent = true, pending = true } end,
     desc = "Dismiss all notifications",
   }
