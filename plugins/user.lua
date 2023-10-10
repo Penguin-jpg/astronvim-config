@@ -65,6 +65,47 @@ return {
     event = "User AstroFile",
     opts = {},
   },
+  -- Faster navigation, character motions
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    vscode = true,
+    opts = {
+      modes = {
+        char = {
+          enabled = true,
+          jump_labels = true,
+          keys = {},
+        },
+      },
+    },
+    keys = {
+      {
+        "f",
+        mode = { "n", "o", "x" },
+        function() require("flash").jump() end,
+        desc = "Flash",
+      },
+      {
+        "F",
+        mode = { "n", "o", "x" },
+        function() require("flash").treesitter() end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "r",
+        mode = "o",
+        function() require("flash").remote() end,
+        desc = "Remote Flash",
+      },
+      {
+        "R",
+        mode = { "o", "x" },
+        function() require("flash").treesitter_search() end,
+        desc = "Treesitter Search",
+      },
+    },
+  },  
   -- Faster change/delete/replace delimiter pairs
   {
     "echasnovski/mini.surround",
