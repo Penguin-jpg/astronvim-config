@@ -42,8 +42,8 @@ if is_available "Comment.nvim" then
     desc = "Comment line",
   }
   maps.v["<C-_>"] = {
-    function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
-    desc = "Comment line",
+    "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+    desc = "Comment block",
   }
   maps.i["<C-_>"] = {
     function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
