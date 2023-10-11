@@ -22,4 +22,6 @@ return {
   { import = "astrocommunity.scrolling.neoscroll-nvim" },
   -- Transparent background
   { import = "astrocommunity.color.transparent-nvim" },
+  -- Experimental plugin for messages, cmdline and popupmenu
+  { import = "astrocommunity.utility.noice-nvim" }, 
 }
