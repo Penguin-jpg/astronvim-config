@@ -77,15 +77,25 @@ return {
       { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
     },
   },
-  -- AI copilot
+  -- AI code completion
   {
     "Exafunction/codeium.vim",
     event = "User AstroFile",
     config = function()
-      vim.keymap.set("i", "<C-a>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
-      vim.keymap.set("i", "<C-Right>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
-      vim.keymap.set("i", "<C-Left>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
-      vim.keymap.set("i", "<C-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
+      vim.keymap.set("i", "<C-a>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+      vim.keymap.set(
+        "i",
+        "<C-Right>",
+        function() return vim.fn["codeium#CycleCompletions"](1) end,
+        { expr = true, silent = true }
+      )
+      vim.keymap.set(
+        "i",
+        "<C-Left>",
+        function() return vim.fn["codeium#CycleCompletions"](-1) end,
+        { expr = true, silent = true }
+      )
+      vim.keymap.set("i", "<C-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true, silent = true })
       vim.keymap.set("n", "<leader>;", function()
         if vim.g.codeium_enabled == true then
           vim.cmd "CodeiumDisable"
@@ -94,5 +104,5 @@ return {
         end
       end, { noremap = true, desc = "Toggle Codeium active" })
     end,
-  },
+  },  
 }

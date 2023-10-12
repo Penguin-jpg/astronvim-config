@@ -7,7 +7,7 @@ local utils = require "astronvim.utils"
 local is_available = utils.is_available
 
 local sections = {
-  r = { desc = replace_icon .. "⟺ Replace" },
+  r = { desc = "⟺ Replace" },
 }
 
 local maps = utils.empty_map_table()
