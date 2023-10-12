@@ -7,21 +7,4 @@ return {
   -- Language pack
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
-
-  -- Colorscheme
-  { import = "astrocommunity.colorscheme.kanagawa-nvim" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
-
-  -- TODO comment support
-  { import = "astrocommunity.editing-support/todo-comments-nvim" },
-  -- Prettier diagnostics, references, telescope results, quickfix and location list
-  { import = "astrocommunity.diagnostics.trouble-nvim"},
-  -- Bracket pair colorize
-  { import = "astrocommunity.editing-support/rainbow-delimiters-nvim" },
-  -- Smooth scrolling
-  { import = "astrocommunity.scrolling.neoscroll-nvim" },
-  -- Transparent background
-  { import = "astrocommunity.color.transparent-nvim" },
-  -- Experimental plugin for messages, cmdline and popupmenu
-  { import = "astrocommunity.utility.noice-nvim" }, 
 }
