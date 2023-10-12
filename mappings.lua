@@ -5,15 +5,12 @@
 -- automatically pick-up stored data by this setting.)
 local utils = require "astronvim.utils"
 local is_available = utils.is_available
-local replace_icon = vim.g.icons_enabled and "⟺ " or ""
-local surround_icon = vim.g.icons_enabled and "󰑤 " or ""
 
 local sections = {
-  r = { desc = replace_icon .. "Replace" },
-  s = { desc = surround_icon .. "Surround" },
+  r = { desc = replace_icon .. "⟺ Replace" },
 }
 
-local maps = require("astronvim.utils").empty_map_table()
+local maps = utils.empty_map_table()
 
 maps.n["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" }
 maps.n["<leader>bD"] = {
@@ -119,13 +116,7 @@ if is_available "substitute.nvim" then
   }
 end
 
--- Custom mappings for surround (mapping details defined in user.lua)
-if is_available "mini.surround" then
-  maps.n["<leader>s"] = sections.s
-  maps.v["<leader>s"] = sections.s
-end
-
--- setting a mapping to false will disable it
+-- Terminal mode
 -- maps.t["<esc>"] = false
 
 return maps

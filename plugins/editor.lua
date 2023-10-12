@@ -1,18 +1,17 @@
 -- Plugins that enhance editor experience
 return {
   -- TODO comment support
-  { 
-    "folke/todo-comments.nvim", 
+  {
+    "folke/todo-comments.nvim",
     event = "User AstroFile",
-    opts = {}, 
+    opts = {},
   },
   -- Bracket pair colorize
   {
     "HiPhish/rainbow-delimiters.nvim",
     dependencies = "nvim-treesitter/nvim-treesitter",
     event = "User AstroFile",
-    opts = {},
-    config = function(_, opts) require "rainbow-delimiters".setup(opts) end,
+    config = function(_, opts) require "rainbow-delimiters.setup" (opts) end,
   },
   -- Transparent background
   {
