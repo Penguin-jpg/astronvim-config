@@ -40,4 +40,21 @@ return {
       },
     },
   },
+  {
+    "rebelot/kanagawa.nvim",
+    opts = function(_, opts)
+      opts.overrides = function(colors)
+        return {
+          RainbowDelimiterRed = { fg = colors.palette.autumnRed },
+          RainbowDelimiterYellow = { fg = colors.palette.carpYellow },
+          RainbowDelimiterBlue = { fg = colors.palette.dragonBlue },
+          RainbowDelimiterOrange = { fg = colors.palette.surimiOrange },
+          RainbowDelimiterGreen = { fg = colors.palette.springGreen },
+          RainbowDelimiterViolet = { fg = colors.palette.oniViolet },
+          RainbowDelimiterCyan = { fg = colors.palette.waveAqua1 },
+        }
+      end
+      return opts
+    end,
+  },
 }
