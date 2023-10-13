@@ -7,4 +7,4 @@ return {
       disabled_plugins = { "tohtml", "gzip", "matchit", "zipPlugin", "netrwPlugin", "tarPlugin" },
     },
   },
-},
+}

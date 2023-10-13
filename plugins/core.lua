@@ -25,7 +25,7 @@ return {
         opts.shell = "pwsh.exe"
       end
     end,
-  }
+  },
 
   -- Enable/Disable plugins
   { "nvim-telescope/telescope-fzf-native.nvim", enabled = false },
