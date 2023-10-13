@@ -27,6 +27,7 @@ return {
         gitsigns = true,
         treesitter = true,
         lsp_trouble = true,
+        neogit = true,
       },
     },
   },
