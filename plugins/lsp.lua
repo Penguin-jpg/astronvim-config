@@ -1,5 +1,6 @@
--- Additional features for Clangd
+-- Plugins related to lsp
 return {
+  -- Additional features for Clangd
   {
     "p00f/clangd_extensions.nvim",
     init = function()

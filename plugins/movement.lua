@@ -17,9 +17,4 @@ return {
       }
     end,
   },
-  -- Better move by word support
-  {
-    "chaoren/vim-wordmotion",
-    event = "User AstroFile",
-  },
 }

@@ -1,5 +1,10 @@
 -- Plugins related to motion
 return {
+  -- Better move by word support
+  {
+    "chaoren/vim-wordmotion",
+    event = "User AstroFile",
+  },
   -- Faster navigation, character motions
   {
     "folke/flash.nvim",
