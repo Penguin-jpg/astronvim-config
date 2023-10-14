@@ -7,4 +7,6 @@ return {
   -- Language pack
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.typescript-deno" },
 }
