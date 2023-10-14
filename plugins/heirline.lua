@@ -26,8 +26,27 @@ return {
       status.component.nav(),
     }
 
-    -- Disable winbar
-    opts.winbar = nil
+    -- vscode-like winbar
+    opts.winbar = {
+      -- show the path to the file relative to the working directory
+      status.component.separated_path { path_func = status.provider.filename { modify = ":.:h" } },
+      -- add the file name and icon
+      status.component.file_info { -- add file_info to breadcrumbs
+        file_icon = { hl = status.hl.filetype_color, padding = { left = 0 } },
+        file_modified = false,
+        file_read_only = false,
+        hl = status.hl.get_attributes("winbar", true),
+        surround = false,
+        update = "BufEnter",
+      },
+      -- show the breadcrumbs
+      status.component.breadcrumbs {
+        icon = { hl = true },
+        hl = status.hl.get_attributes("winbar", true),
+        prefix = true,
+        padding = { left = 0 },
+      },
+    }
 
     -- return the final options table
     return opts
