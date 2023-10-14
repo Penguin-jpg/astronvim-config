@@ -3,6 +3,7 @@ return {
   -- Additional features for Clangd
   {
     "p00f/clangd_extensions.nvim",
+    ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
     init = function()
       -- load clangd extensions when clangd attaches
       local augroup = vim.api.nvim_create_augroup("clangd_extensions", { clear = true })
