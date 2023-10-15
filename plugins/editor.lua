@@ -11,8 +11,24 @@ return {
     "HiPhish/rainbow-delimiters.nvim",
     dependencies = "nvim-treesitter/nvim-treesitter",
     event = "User AstroFile",
-    config = function(_, opts) require "rainbow-delimiters.setup" (opts) end,
+    config = function(_, opts) require "rainbow-delimiters.setup"(opts) end,
   },
+  -- Better indent blankline
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "UIEnter" },
+    config = function()
+      require("hlchunk").setup {
+        -- Disable line number and blank highlight
+        line_num = {
+          enable = false,
+        },
+        blank = {
+          enable = false,
+        },
+      }
+    end,
+  },  
   -- Transparent background
   {
     "xiyaowong/transparent.nvim",
@@ -97,5 +113,5 @@ return {
         end
       end, { noremap = true, desc = "Toggle Codeium active" })
     end,
-  },  
+  },
 }
