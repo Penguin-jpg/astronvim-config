@@ -11,6 +11,7 @@ return {
         "clangd",
         "pyright",
         "ruff_lsp",
+        "tsserver",
       })
     end,
   },
@@ -25,6 +26,7 @@ return {
         "clang-format",
         "black",
         "prettier",
+        "eslint-lsp",
       })
     end,
   },
