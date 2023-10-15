@@ -33,4 +33,5 @@ return {
   { "s1n7ax/nvim-window-picker", enabled = false },
   { "stevearc/aerial.nvim", enabled = false },
   { "mfussenegger/nvim-dap", enabled = true },
+  { "HiPhish/rainbow-delimiters.nvim", enabled = false },
 }
