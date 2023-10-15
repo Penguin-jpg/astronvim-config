@@ -76,16 +76,16 @@ return {
     opts = { use_default_keymaps = false },
     config = function(_, opts) require("treesj").setup(opts) end,
     keys = {
-      { "Sj", mode = { "n", "x" }, function() require("treesj").toggle() end, desc = "Split or join" },
+      { "sj", mode = { "n", "x" }, function() require("treesj").toggle() end, desc = "Split or join" },
     },
   },
   -- Faster change/delete/replace delimiter pairs
   {
     "echasnovski/mini.surround",
     event = "User AstroFile",
-    opts = {},
+    opts = { n_lines = 200 },
     keys = {
-      { "s", desc = "󰑤 Surround" },
+      { "s", desc = vim.g.icon_enabled and "󰑤 " or "".. "Surround" },
       { "sa", mode = { "n", "v" }, desc = "Add surrounding" },
       { "sd", desc = "Delete surrounding" },
       { "sf", desc = "Find right surrounding" },
