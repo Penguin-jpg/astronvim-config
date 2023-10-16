@@ -22,10 +22,15 @@ return {
       if vim.fn.has "win32" then opts.shell = "pwsh.exe" end
     end,
   },
+  {
+    "max397574/better-escape.nvim",
+    opts = {
+      mapping = { "jj", "xx" },
+    },
+  },
 
   -- Enable/Disable plugins
   { "nvim-telescope/telescope-fzf-native.nvim", enabled = false },
-  { "max397574/better-escape.nvim",             enabled = false },
   { "lukas-reineke/indent-blankline.nvim",      enabled = false },
   { "s1n7ax/nvim-window-picker",                enabled = false },
   { "stevearc/aerial.nvim",                     enabled = false },
