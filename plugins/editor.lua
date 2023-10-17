@@ -94,13 +94,13 @@ return {
       vim.keymap.set("i", "<C-a>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
       vim.keymap.set(
         "i",
-        "<C-Right>",
+        "<S-Right>",
         function() return vim.fn["codeium#CycleCompletions"](1) end,
         { expr = true, silent = true }
       )
       vim.keymap.set(
         "i",
-        "<C-Left>",
+        "<S-Left>",
         function() return vim.fn["codeium#CycleCompletions"](-1) end,
         { expr = true, silent = true }
       )

@@ -43,20 +43,24 @@ return {
             filter = { event = "msg_show", kind = "", find = "written" },
             opts = { skip = true },
           },
-          -- Disable paste notification
+          -- Disable paste/undo notification
           {
-            filter = { event = "msg_show", find = "^%d+ more lines$" },
+            filter = { event = "msg_show", find = "^%d+ more lines" },
             opts = { skip = true },
           },
-          -- Disable delete notification
+          -- Disable delete/undo notification
           {
-            filter = { event = "msg_show", find = "^%d+ fewer lines$" },
+            filter = { event = "msg_show", find = "^%d+ fewer lines" },
             opts = { skip = true },
           },
           -- Disable yank notification
           {
             filter = { event = "msg_show", find = "^%d+ lines yanked$" },
             opts = { skip = true },
+          },
+          -- Disable move notification
+          {
+            filter = { event = "msg_show", find = "^%d+ lines moved$" },
           },
         },
         -- Display cmdline and popupmenu together
