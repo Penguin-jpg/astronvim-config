@@ -58,4 +58,11 @@ return {
       return opts
     end,
   },
+  {
+    "navarasu/onedark.nvim",
+    opts = function(_, opts)
+      opts.style = "darker"
+      return opts
+    end,
+  },
 }
