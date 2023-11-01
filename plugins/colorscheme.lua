@@ -6,8 +6,8 @@ return {
     opts = {
       flavour = "macchiato", -- latte, frappe, macchiato, mocha
       background = { -- :h background
-          light = "latte",
-          dark = "mocha",
+        light = "latte",
+        dark = "mocha",
       },
       integrations = {
         alpha = true,
@@ -60,9 +60,21 @@ return {
   },
   {
     "navarasu/onedark.nvim",
-    opts = function(_, opts)
-      opts.style = "darker"
-      return opts
+    config = function()
+      require("onedark").setup {
+        style = "darker",
+        colors = {
+          pink = "#FFB6C1",
+          dark_yellow = "#DDAA56",
+          light_grey = "#A0ADB4",
+        },
+        highlights = {
+          ["@comment"] = { fg = "$pink" },
+          ["@lsp.type.comment"] = { fg = "$pink" },
+          ["@punctuation.delimiter"] = { fg = "$light_grey" },
+          ["@punctuation.bracket"] = { fg = "$orange" },
+        },
+      }
     end,
   },
 }
