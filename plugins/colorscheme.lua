@@ -64,14 +64,14 @@ return {
       require("onedark").setup {
         style = "darker",
         colors = {
-          pink = "#FFB6C1",
+          viola = "#C087B5",
           fg = "#A8B1BF",
           dark_yellow = "#DDAA56",
           light_grey = "#8A91A8",
         },
         highlights = {
-          ["@comment"] = { fg = "$pink" },
-          ["@lsp.type.comment"] = { fg = "$pink" },
+          ["@comment"] = { fg = "$viola" },
+          ["@lsp.type.comment"] = { fg = "$viola" },
           ["@punctuation.delimiter"] = { fg = "$light_grey" },
           ["@punctuation.bracket"] = { fg = "$orange" },
         },
