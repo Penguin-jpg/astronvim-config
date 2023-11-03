@@ -5,7 +5,7 @@ return {
     name = "catppuccin",
     opts = {
       flavour = "macchiato", -- latte, frappe, macchiato, mocha
-      background = { -- :h background
+      background = {         -- :h background
         light = "latte",
         dark = "mocha",
       },
@@ -65,8 +65,9 @@ return {
         style = "darker",
         colors = {
           pink = "#FFB6C1",
+          fg = "#A8B1BF",
           dark_yellow = "#DDAA56",
-          light_grey = "#A0ADB4",
+          light_grey = "#8A91A8",
         },
         highlights = {
           ["@comment"] = { fg = "$pink" },
