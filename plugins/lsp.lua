@@ -1,5 +1,15 @@
 -- Plugins related to lsp
 return {
+  -- Signature help
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "ray-x/lsp_signature.nvim",
+      opts = {
+        hint_enable = false, -- disable hint as it will crash in some terminal
+      },
+    },
+  },
   -- Additional features for Clangd
   {
     "p00f/clangd_extensions.nvim",
