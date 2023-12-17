@@ -80,15 +80,15 @@ end
 if is_available "substitute.nvim" then
   local replace_icon = vim.g.icon_enabled and "⟺ " or ""
   maps.n["<leader>r"] = { desc = replace_icon .. "Replace" }
-  maps.n["<leader>rr"] = {
+  maps.n["<leader>rv"] = {
     function() require("substitute").line() end,
     desc = "Replace line with register value",
   }
-  maps.n["<leader>re"] = {
-    function() require("substitute").eol() end,
-    desc = "Replace from cursor to eol with register value",
-  }
-  maps.n["<leader>rw"] = {
+  -- maps.n["<leader>re"] = {
+  --   function() require("substitute").eol() end,
+  --   desc = "Replace from cursor to eol with register value",
+  -- }
+  maps.n["<leader>rr"] = {
     function() require("substitute.range").operator { subject = { motion = "iw" }, range = { motion = "ap" } } end,
     desc = "Replace matched words with input value",
   }
@@ -96,11 +96,11 @@ if is_available "substitute.nvim" then
     function() require("substitute.range").operator { subject = { motion = "iw" }, range = "%" } end,
     desc = "Replace all matched words with input value",
   }
-  maps.v["<leader>rr"] = {
+  maps.v["<leader>rv"] = {
     function() require("substitute").visual() end,
     desc = "Replace selected block with register value",
   }
-  maps.v["<leader>rw"] = {
+  maps.v["<leader>rr"] = {
     function() require("substitute.range").visual { subject = { motion = "iw" }, range = { motion = "ap" } } end,
     desc = "Replace matched words with input value",
   }
