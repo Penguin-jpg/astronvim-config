@@ -16,7 +16,7 @@ return {
   -- Better indent blankline
   {
     "shellRaining/hlchunk.nvim",
-    event = { "UIEnter" },
+    event = "User AstroFile",
     config = function()
       require("hlchunk").setup {
         -- Disable line number and blank highlight
@@ -77,6 +77,7 @@ return {
   -- Diagnostics list
   {
     "folke/trouble.nvim",
+    event = "User AstroFile",
     cmd = { "TroubleToggle", "Trouble" },
     opts = {
       use_diagnostic_signs = true,

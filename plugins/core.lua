@@ -36,5 +36,6 @@ return {
   { "stevearc/aerial.nvim",                     enabled = false },
   { "HiPhish/rainbow-delimiters.nvim",          enabled = false },
   { "folke/flash.nvim",                         enabled = false },
+  { "folke/trouble.nvim",                       enabled = false },
   { "mfussenegger/nvim-dap",                    enabled = true },
 }

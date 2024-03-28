@@ -92,7 +92,6 @@ return {
       { "sF", desc = "Find left surrounding" },
       { "sr", desc = "Highlight surrounding" },
       { "sn", desc = "Replace surrounding" },
-      { "sn", desc = "Update `MiniSurround.config.n_lines`" },
     },
   },
 }
