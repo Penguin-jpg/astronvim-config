@@ -28,7 +28,16 @@ return {
         },
       }
     end,
-  },  
+  },
+  -- Highlight arguments of function  
+  {
+    "m-demare/hlargs.nvim",
+    event = "User AstroFile",
+    opts = {
+      color = "#ea7183",
+      paint_arg_usages = true,
+    },
+  },
   -- Transparent background
   {
     "xiyaowong/transparent.nvim",
