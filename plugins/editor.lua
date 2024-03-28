@@ -124,4 +124,9 @@ return {
       end, { noremap = true, desc = "Toggle Codeium active" })
     end,
   },
+  -- Multi-cursors support
+  {
+    "mg979/vim-visual-multi",
+    event = "User AstroFile",
+  }
 }
