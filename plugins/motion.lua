@@ -94,4 +94,9 @@ return {
       { "sn", desc = "Replace surrounding" },
     },
   },
+  -- Advanced mouse motion support
+  {
+    "notomo/gesture.nvim",
+    event = "User AstroFile",
+  },
 }

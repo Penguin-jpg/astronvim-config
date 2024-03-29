@@ -7,6 +7,8 @@ return {
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     wrap = false, -- sets vim.opt.wrap
+    mouse = "a", -- sets vim.opt.mouse
+    mousemoveevent = true, -- sets vim.opt.mousemoveevent
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader

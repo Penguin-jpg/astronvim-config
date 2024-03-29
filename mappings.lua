@@ -120,6 +120,51 @@ if is_available "trouble.nvim" then
   maps.n["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" }
 end
 
+------ Custom mappings for gesture.nvim ------
+if is_available "gesture.nvim" then
+  vim.keymap.set("n", "<RightMouse>", [[<Nop>]])
+  vim.keymap.set("n", "<RightDrag>", [[<Cmd>lua require("gesture").draw()<CR>]], { silent = true })
+  vim.keymap.set("n", "<RightRelease>", [[<Cmd>lua require("gesture").finish()<CR>]], { silent = true })
+
+  local gesture = require "gesture"
+
+  gesture.register({
+    name = "Switch to next buffer",
+    inputs = { gesture.right() },
+    action = function()
+      require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1)
+    end,
+  })
+
+  gesture.register({
+    name = "Switch to previous buffer",
+    inputs = { gesture.left() },
+    action = function()
+      require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1))
+    end,
+  })
+
+  gesture.register({
+    name = "Back to previous view",
+    inputs = { gesture.up() },
+    action = [[lua vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-o>", true, false, true), "n", true)]],
+  })
+  
+  gesture.register({
+    name = "Back to next view",
+    inputs = { gesture.down() },
+    action = [[lua vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-i>", true, false, true), "n", true)]],
+  })
+
+  gesture.register({
+    name = "Close current split window",
+    inputs = { gesture.down(), gesture.right() },
+    action = function()
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>q", true, false, true), "n", true)
+    end,
+  })
+end
+
 -- Terminal mode
 -- maps.t["<esc>"] = false
 
