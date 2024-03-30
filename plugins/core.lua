@@ -33,7 +33,6 @@ return {
   { "nvim-telescope/telescope-fzf-native.nvim", enabled = false },
   { "lukas-reineke/indent-blankline.nvim",      enabled = false },
   { "s1n7ax/nvim-window-picker",                enabled = false },
-  { "stevearc/aerial.nvim",                     enabled = false },
   { "HiPhish/rainbow-delimiters.nvim",          enabled = false },
   { "folke/flash.nvim",                         enabled = false },
   { "folke/trouble.nvim",                       enabled = false },

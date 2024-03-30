@@ -29,7 +29,7 @@ return {
       }
     end,
   },
-  -- Highlight arguments of function  
+  -- Semantic tokens highlight 
   {
     "m-demare/hlargs.nvim",
     event = "User AstroFile",
